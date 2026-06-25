@@ -1,12 +1,439 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>SHAMMAH BUSUNGU</h1>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shammah | Civil and AI Engineer & Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0d0d0d;
+        --card: #161616;
+        --gold: #c9a84c;
+        --gold-lt: #e2c06a;
+        --cream: #f0ede5;
+        --muted: #888888;
+        --border: #252525;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--cream);
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      /* ── Header ─────────────────────────────────────── */
+      header {
+        border-bottom: 1px solid var(--border);
+        padding: 1.25rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--gold);
+        letter-spacing: 0.12em;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .header-avatar {
+        width: 60px;
+        height: 60px;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .header-avatar::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        padding: 4px;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0% 25%,
+          var(--gold) 25% 50%,
+          transparent 50% 75%,
+          var(--gold) 75% 100%
+        );
+        animation: rotate 6s linear infinite;
+      }
+      .header-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+        display: block;
+        transform-origin: 50% 50%;
+        animation: spin 6s linear infinite;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: var(--cream);
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .header-avatar::before,
+        .header-avatar img {
+          animation: none !important;
+        }
+      }
+
+      /* ── Hero ────────────────────────────────────────── */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 4rem;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+        align-items: center;
+      }
+
+      /* Gold border effect around photo */
+      .photo-wrap {
+        position: relative;
+        display: inline-block;
+        border-radius: 12px;
+      }
+      .photo-wrap::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 13px;
+        background: linear-gradient(
+          145deg,
+          var(--gold) 0%,
+          transparent 50%,
+          var(--gold) 100%
+        );
+        opacity: 0.55;
+        z-index: 0;
+      }
+
+      .photo-wrap img {
+        width: 100%;
+        max-width: 360px;
+        border-radius: 11px;
+        object-fit: cover;
+        object-position: top;
+        aspect-ratio: 3 / 4;
+        position: relative;
+        z-index: 1;
+        display: block;
+      }
+
+      .eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.4rem, 5vw, 3.8rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+      }
+      h1 span {
+        color: var(--gold);
+      }
+
+      .bio {
+        color: #aaa;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        max-width: 500px;
+      }
+
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--gold);
+        color: #0d0d0d;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .cta-btn:hover {
+        background: var(--gold-lt);
+        transform: translateY(-2px);
+      }
+
+      /* ── Skills ──────────────────────────────────────── */
+      .skills-section {
+        background: var(--card);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .section-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1.75rem;
+      }
+      h2 .accent {
+        color: var(--gold);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+        list-style: none;
+      }
+
+      .skill-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.25rem;
+        cursor: default;
+        transition:
+          border-color 0.2s,
+          transform 0.15s;
+      }
+      .skill-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      .skill-icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+      .skill-name {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--cream);
+      }
+      .skill-desc {
+        font-size: 0.73rem;
+        color: var(--muted);
+        margin-top: 0.25rem;
+      }
+
+      /* ── Footer ──────────────────────────────────────── */
+      footer {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+        text-align: center;
+      }
+      footer p {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+      footer a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* ── Responsive ──────────────────────────────────── */
+      @media (max-width: 720px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 3rem 1.5rem;
+          gap: 2.5rem;
+        }
+        .photo-wrap {
+          display: block;
+          text-align: center;
+        }
+        .photo-wrap img {
+          max-width: 260px;
+          margin: 0 auto;
+        }
+        header {
+          padding: 1rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── Navigation ─────────────────────────────────── -->
+    <header>
+      <span class="logo">SHAPAB</span>
+      <div class="header-right">
+        <nav>
+          <a
+            href="https://shapab5.wordpress.com/"
+            target="_blank"
+            rel="noopener"
+            >Blog ↗</a
+          >
+        </nav>
+        <div class="header-avatar">
+          <img
+            src="WhatsApp%20Image%202026-06-25%20at%203.46.28%20PM.jpeg"
+            alt="Shammah avatar"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ── Hero / About ───────────────────────────────── -->
+      <section class="hero">
+        <div class="photo-wrap">
+          <!--
+                    IMPORTANT: Save your photo as "photo.png"
+                    in the same folder as this index.html file.
+                -->
+          <img
+            src="WhatsApp%20Image%202026-06-25%20at%203.46.28%20PM.jpeg"
+            alt="Shammah – Civil and AI Engineer & Developer"
+          />
+        </div>
+
+        <div>
+          <p class="eyebrow">Civil Engineer · Developer · Sprinter</p>
+
+          <h1>Hi, I'm <span>Shammah</span>.</h1>
+
+          <p class="bio">
+            I'm a Certified AI Engineer and Year 3 Civil Engineering student at
+            the Technical University of Kenya, Nairobi. Alongside structures and
+            surveys,A digital marketerspecializing in using data-driven strategies to enhance online presence. I'm actively building full-stack web development skills,
+            working with AI APIs, and writing code in Python and C++. Off campus
+            I compete in sprinting — I train with the same discipline I bring to
+            everything else I do.
+          </p>
+
+          <a
+            class="cta-btn"
+            href="https://shapab5.wordpress.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Visit My Blog ↗
+          </a>
+        </div>
+      </section>
+
+      <!-- ── Skills & Interests ─────────────────────────── -->
+      <section class="skills-section">
+        <div class="section-inner">
+          <h2>Skills &amp; <span class="accent">Interests</span></h2>
+
+          <ul class="skills-grid">
+            <li class="skill-card">
+              <div class="skill-icon">🏗️</div>
+              <div class="skill-name">Civil Engineering</div>
+              <div class="skill-desc">
+                Structural analysis, surveying &amp; soil mechanics
+              </div>
+            </li>
+
+            <li class="skill-card">
+              <div class="skill-icon">🌐</div>
+              <div class="skill-name">Web Development</div>
+              <div class="skill-desc">HTML &amp; CSS — learning full-stack</div>
+            </li>
+
+            <li class="skill-card">
+              <div class="skill-icon">🐍</div>
+              <div class="skill-name">Python</div>
+              <div class="skill-desc">Scripts, APIs &amp; automation</div>
+            </li>
+
+            <li class="skill-card">
+              <div class="skill-icon">⚙️</div>
+              <div class="skill-name">C++</div>
+              <div class="skill-desc">Systems programming &amp; algorithms</div>
+            </li>
+
+            <li class="skill-card">
+              <div class="skill-icon">🤖</div>
+              <div class="skill-name">AI Development</div>
+              <div class="skill-desc">Building tools with LLM APIs</div>
+            </li>
+
+            <li class="skill-card">
+              <div class="skill-icon">⚡</div>
+              <div class="skill-name">Sprinting</div>
+              <div class="skill-desc">
+                Competitive track &amp; field athlete
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Footer ─────────────────────────────────────── -->
+    <footer>
+      <p>
+        Built with HTML &amp; CSS ·
+        <a href="https://shapab5.wordpress.com/" target="_blank" rel="noopener"
+          >shapab5.wordpress.com</a
+        >
+      </p>
+    </footer>
+  </body>
 </html>
