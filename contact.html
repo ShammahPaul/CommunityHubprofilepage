@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Shammah Portfolio</title>
+  </head>
+  <body>
+    <header>
+      <h1>Contact Shammah</h1>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Send a Message</h2>
+
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Personal Information</legend>
+
+            <p>
+              <label for="full-name">Full name *</label>
+              <input
+                type="text"
+                id="full-name"
+                name="full-name"
+                required
+                minlength="2"
+              />
+            </p>
+
+            <p>
+              <label for="email">Email address *</label>
+              <input type="email" id="email" name="email" required />
+            </p>
+
+            <p>
+              <label for="phone">Phone number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="^[+0-9 ()-]{7,20}$"
+              />
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Message Details</legend>
+
+            <p>
+              <label for="topic">Topic *</label>
+              <select id="topic" name="topic" required>
+                <option value="">Select a topic</option>
+                <option value="project">Project collaboration</option>
+                <option value="engineering">Civil engineering</option>
+                <option value="ai">AI development</option>
+                <option value="other">Other</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="subject">Subject *</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                minlength="3"
+                maxlength="80"
+              />
+            </p>
+
+            <p>
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="8"
+                required
+                minlength="10"
+                maxlength="1000"
+              ></textarea>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Response Preference</legend>
+
+            <p>
+              <input
+                type="checkbox"
+                id="reply-consent"
+                name="reply-consent"
+                required
+              />
+              <label for="reply-consent">
+                I agree to be contacted about this message *
+              </label>
+            </p>
+
+            <p>
+              <label for="preferred-date">Preferred response date</label>
+              <input type="date" id="preferred-date" name="preferred-date" />
+            </p>
+          </fieldset>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Shammah</p>
+    </footer>
+  </body>
+</html>
